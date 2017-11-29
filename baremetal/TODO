@@ -1,0 +1,22 @@
+-- Work out how to inject domain correctly (with/without bumblebee?)
+-- Work out why directory didn't come up nicely second time round
+Redeploy node01
+Redeploy directory
+-- Work out how to stop directory joining script from defaulting to eth0
+Work out how/why act_qmaster is being clobbered.
+
+
+Tool:
+
+Download qcow image(s)
+Setup libvirt as required?
+Setup bridges/VLANs as required?
+Setup seed ISO data
+virt-install if not yet created
+virsh start if already present
+launch qcow Flight Compute on nodes
+launch baremetal Flight Compute on nodes (via metalware?)
+launch directory, monitor, login
+
+Login/submit node on baremetal?
+Multiple login nodes, 1 master, multiple submit?

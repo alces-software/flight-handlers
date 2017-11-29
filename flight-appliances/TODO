@@ -1,0 +1,20 @@
+If we're an appliance:
+
+When a member joins the cluster, check:
+
+- is it a master
+- does it have a storage role set
+- if it does create(/add?) configuration to use that host as an ASMD auth endpoint
+
+
+For appliance:
+
+Pull in serviceware tarball for alces-storage-manager, e.g.
+
+mkdir -p /opt/clusterware/var/lib/services/repos/appliance
+cd /opt/clusterware/var/lib/services/repos/appliance
+curl ... | tar xz
+al ser inst appliance/alces-storage-manager
+# grabs and installs ASM from github
+# create appropriate config.yml file in /opt/clusterware/etc/config.yml
+al han en cluster-access
