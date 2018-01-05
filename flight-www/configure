@@ -54,11 +54,11 @@ _handle_port() {
 _update_dynamic_values() {
     local host ipAddress tmpfile redirectUrl
     files_load_config --optional access
-    files_load_config --optional cluster-www
+    files_load_config --optional flight-www
     host="${cw_ACCESS_fqdn:-$(network_get_public_hostname)}"
     ipAddress="$(network_get_public_address)"
 
-    tmpfile="$(mktemp /tmp/cluster-www.XXXXXXXX)"
+    tmpfile="$(mktemp /tmp/flight-www.XXXXXXXX)"
 
     # dynamic values (per-boot)
     $_JQ --arg host $host --arg ipAddress $ipAddress \
@@ -68,8 +68,8 @@ _update_dynamic_values() {
     chmod a+r "${tmpfile}"
     mv ${tmpfile} "${cw_ROOT}"/var/lib/alces-flight-www/flight/www/index.json
 
-    _install_nginx_conf cluster-www server-http
-    _install_nginx_conf cluster-www server-https
+    _install_nginx_conf flight-www server-http
+    _install_nginx_conf flight-www server-https
     _install_nginx_conf redirect-https-to-launch-service server-https
 
 
@@ -88,7 +88,7 @@ main() {
     local http_port https_port host edition
 
     # Bail out if we're already configured (this is a reboot)
-    if [ -d "${cw_ROOT}/etc/config/cluster-www" ]; then
+    if [ -d "${cw_ROOT}/etc/config/flight-www" ]; then
         _update_dynamic_values
         exit 0
     fi
@@ -99,7 +99,7 @@ main() {
         cp "$(handler_dir)"/libexec/www-add-attributes "${cw_ROOT}"/libexec/share/www-add-attributes
     fi
 
-    mkdir -p "${cw_ROOT}/etc/config/cluster-www"
+    mkdir -p "${cw_ROOT}/etc/config/flight-www"
 
     files_load_config instance config/cluster
 

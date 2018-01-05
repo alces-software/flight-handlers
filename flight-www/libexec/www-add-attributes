@@ -55,8 +55,8 @@ main() {
         https_port=""
     fi
 
-    configWithVars="$(mktemp /tmp/cluster-www.XXXXXXXX)"
-    newConfig="$(mktemp /tmp/cluster-www.XXXXXXXX)"
+    configWithVars="$(mktemp /tmp/flight-www.XXXXXXXX)"
+    newConfig="$(mktemp /tmp/flight-www.XXXXXXXX)"
 
     sed \
         -e "s,_CLUSTERNAME_,${cw_CLUSTER_name},g" \
