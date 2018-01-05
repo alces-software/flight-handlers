@@ -134,7 +134,7 @@ main() {
     fi
 
     # Enable the component
-    ${_ALCES} service enable alces-flight-www
+    ${_ALCES} service enable flight/alces-flight-www/base
     # We manually deal with this service via the handler, so disable
     # it from automatic startup.
     distro_disable_service clusterware-alces-flight-www
