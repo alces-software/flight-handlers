@@ -10,7 +10,7 @@ install:
     ## Copyright (c) 2016-2017 Alces Software Ltd
     ##
     ################################################################################
-    cw_CLUSTER_WWW_redirect_url_template=https://launch.alces-flight.com/cluster/_HOSTNAME_
+    cw_CLUSTER_WWW_redirect_url_template=https://manage.alces-flight.com/cluster/_HOSTNAME_
     EOF
 
 order: 50
